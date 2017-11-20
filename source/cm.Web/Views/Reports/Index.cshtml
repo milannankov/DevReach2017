@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ConferenceManagement.Web.Models.TweetReport>
+
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>Reports</h2>
+<div>
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#1" data-toggle="tab">Twitter</a>
+        </li>
+        <li>
+            <a href="#2" data-toggle="tab">Feedback forms</a>
+        </li>
+    </ul>
+
+    <div class="tab-content ">
+        <div class="tab-pane active tweets-pane" id="1">
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-1">
+                        
+                    </div>
+                    <div class="col-md-2">
+                        @item.Author
+                    </div>
+                    <div class="col-md-6">
+                        <a href="@item.Link">@item.Text</a>
+                    </div>
+                    <div class="col-md-1">
+                        <span>@item.SentimentValue</span>
+                    </div>
+                    <div class="col-md-1">
+                        <img class="tweet-sentiment-image" src="@item.SentimentImageUrl"/>
+                    </div>
+                    <div class="col-md-1">
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="tab-pane" id="2">
+            <h3>Feedback form data...</h3>
+        </div>
+    </div>
+</div>

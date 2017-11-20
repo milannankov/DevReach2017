@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ConferenceManagement.Web.Models.ConferenceListing>
+
+@{
+    ViewBag.Title = "Conference Directory";
+}
+
+<h2>Conferences</h2>
+
+<div class="row">
+
+    @foreach (var conference in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="@conference.ImageUrl">
+                <div class="caption">
+                    <h3>@conference.Title</h3>
+                    <p>@conference.Description</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Manage</a></p>
+                    <p><a href="@Url.Action("Index", "Reports")" class="btn btn-primary" role="button">Reports</a></p>
+                </div>
+            </div>
+        </div>
+    }
+
+    
+</div>
